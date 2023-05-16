@@ -1,0 +1,15 @@
+<div class="flex-row-reverse d-flex">
+  <div class="col col-sm-6">
+    <div class="media">
+      <img [src]="reception.imageLink" alt="" />
+    </div>
+  </div>
+
+  <div class="col col-sm-6">
+    <div class="content">
+      <h2>{{ reception.name }}</h2>
+
+      <div [innerHTML]="reception.ingredients"></div>
+    </div>
+  </div>
+</div>

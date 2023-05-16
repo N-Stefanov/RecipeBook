@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col">
+    <div class="form">
+      <form (submit)="onSubmit(f)" #f="ngForm">
+        <input type="text" name="title" [(ngModel)]="title" />
+
+        <div class="NgxEditor__Wrapper">
+          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+          </ngx-editor-menu>
+          <ngx-editor
+            [editor]="editor"
+            [(ngModel)]="editorContent"
+            name="editor"
+          >
+          </ngx-editor>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div
+    class="col col-4"
+    *ngFor="let item of loadedPosts; let i = index"
+    [id]="i"
+  >
+    <a class="tile text-center" [routerLink]="['/receptions', i]">
+      <h5>{{ item.name }}</h5>
+
+      <img
+        [src]="item.imageLink"
+        alt=""
+        width="100"
+        style="width: 100%; height: auto; object-fit: cover"
+      />
+    </a>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
